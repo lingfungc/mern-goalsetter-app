@@ -4,7 +4,8 @@
   "description": "This MERN app is to manage goal-setter with RESTful APIs",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/lingfungc/mern-goalsetter-app/issues"
   },
-  "homepage": "https://github.com/lingfungc/mern-goalsetter-app#readme"
+  "homepage": "https://github.com/lingfungc/mern-goalsetter-app#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
