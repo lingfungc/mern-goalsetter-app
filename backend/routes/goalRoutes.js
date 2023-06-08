@@ -5,6 +5,10 @@ router.get("/", (req, res) => {
   res.status(200).json({ message: "Get all goals" });
 });
 
+router.get("/:id", (req, res) => {
+  res.status(200).json({ message: `Get details of goal ID ${req.params.id}` });
+});
+
 router.post("/", (req, res) => {
   res.status(200).json({ message: "Create a new goal" });
 });
