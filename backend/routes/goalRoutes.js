@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "Get all goals" });
-});
+const { getGoals } = require("../controllers/goalControllers");
+
+// router.get("/", (req, res) => {
+//   res.status(200).json({ message: "Get all goals" });
+// });
+
+router.get("/", getGoals);
 
 router.get("/:id", (req, res) => {
   res.status(200).json({ message: `Get details of goal ID ${req.params.id}` });
