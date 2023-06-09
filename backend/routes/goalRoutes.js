@@ -1,7 +1,14 @@
+// * Common JS Syntax
 const express = require("express");
 const router = express.Router();
 
-const { getGoals } = require("../controllers/goalControllers");
+const {
+  getGoals,
+  getOneGoal,
+  setGoal,
+  updateGoal,
+  deleteGoal,
+} = require("../controllers/goalControllers");
 
 // router.get("/", (req, res) => {
 //   res.status(200).json({ message: "Get all goals" });
@@ -9,20 +16,12 @@ const { getGoals } = require("../controllers/goalControllers");
 
 router.get("/", getGoals);
 
-router.get("/:id", (req, res) => {
-  res.status(200).json({ message: `Get details of goal ID ${req.params.id}` });
-});
+router.get("/:id", getOneGoal);
 
-router.post("/", (req, res) => {
-  res.status(200).json({ message: "Create a new goal" });
-});
+router.post("/", setGoal);
 
-router.put("/:id", (req, res) => {
-  res.status(200).json({ message: `Update goal ID: ${req.params.id}` });
-});
+router.put("/:id", updateGoal);
 
-router.delete("/:id", (req, res) => {
-  res.status(200).json({ message: `Delete goal ID: ${req.params.id}` });
-});
+router.delete("/:id", deleteGoal);
 
 module.exports = router;
