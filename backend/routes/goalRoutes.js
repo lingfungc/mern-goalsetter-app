@@ -14,14 +14,13 @@ const {
 //   res.status(200).json({ message: "Get all goals" });
 // });
 
-router.get("/", getGoals);
+// router.get("/", getGoals);
+// router.get("/:id", getOneGoal);
+// router.post("/", setGoal);
+// router.put("/:id", updateGoal);
+// router.delete("/:id", deleteGoal);
 
-router.get("/:id", getOneGoal);
-
-router.post("/", setGoal);
-
-router.put("/:id", updateGoal);
-
-router.delete("/:id", deleteGoal);
+router.route("/").get(getGoals).post(setGoal);
+router.route("/:id").get(getOneGoal).put(updateGoal).delete(deleteGoal);
 
 module.exports = router;
