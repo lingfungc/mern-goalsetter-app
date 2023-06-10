@@ -1,3 +1,5 @@
+// * By using "err" as argument in this errorHandler and app.use(errorHandler) in server.js
+// * We overwrite the default express.js errorHandler with this custom one
 const errorHandler = (err, req, res, next) => {
   const statusCode = res.statusCode ? res.statusCode : 500;
 
