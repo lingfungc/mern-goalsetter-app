@@ -16,7 +16,15 @@ const getOneGoal = (req, res) => {
 // Route:     POST /api/goals
 // Access:    Private
 const setGoal = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
+
+  if (!req.body.message) {
+    // res.status(400).json({ errors: "Please add a message" });
+
+    // * Using express.js error handler, which returns a text/HTML page
+    res.status(400);
+    throw new Error("Please add a message");
+  }
 
   res.status(200).json({ message: "Create a new goal" });
 };
