@@ -9,6 +9,7 @@ Create:
 Backend:
 npm i express dotenv mongoose colors
 npm i -D nodemon
+npm i express-async-handler
 
 Update package.json:
 "scripts": {

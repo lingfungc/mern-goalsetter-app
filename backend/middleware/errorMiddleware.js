@@ -5,6 +5,8 @@ const errorHandler = (err, req, res, next) => {
 
   res.status(statusCode);
 
+  // * We overwrite the error handler from text/HTML to a JavaScript object with res.json()
+  // * By default "stack" gives more information and we only use it in development mode
   res.json({
     message: err.message,
     stack: process.env.NODE_ENV === "production" ? null : err.stack,
