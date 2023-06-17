@@ -8,6 +8,7 @@ Create:
 
 Backend:
 npm i express dotenv mongoose colors
+npm i mongodb
 npm i -D nodemon
 npm i express-async-handler
 
@@ -19,3 +20,22 @@ Update package.json:
 
 Terminal:
 npm run server
+
+Steps:
+Initialize git and commit
+Basic express server
+Environment variables
+First route
+Routes file
+Creating a controller
+Connecting controller functions
+Accepting body data
+Error and exception handling
+Express async handler
+Create MondoDB database
+Connect with Mongoose
+Create a model
+Get goals
+Create goal
+Update goal
+Delete goal
