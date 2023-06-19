@@ -38,7 +38,12 @@ const registerUser = asyncHandler(async (req, res) => {
 
     // * The "_" is a convention to indicate that the "id" is for internal or private user
     // * Also, the "id" is not meant to be accessed or modified directly by the external code
-    res.status(201).json({ _id: user.id, name: user.name, email: user.email });
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    });
   } else {
     res.status(400);
     throw new Error("Invalid user data");
@@ -58,6 +63,7 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -67,9 +73,14 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // Desc:      Get user data
 // Route:     GET /api/users/dashboard
-// Access:    Public
+// Access:    Private
 const getUser = (req, res) => {
   res.json({ message: "Display user data" });
+};
+
+// Generate a JWT
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
 module.exports = { registerUser, loginUser, getUser };
