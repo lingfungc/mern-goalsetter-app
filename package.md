@@ -41,3 +41,19 @@ Get goals
 Create goal
 Update goal
 Delete goal
+
+What is JWT?
+Create user model
+Add user to goal model
+User routes and controller functions
+Register user
+Hash password
+Authenticate user
+Generate JWT
+Auth middleware
+Protecting routes and getUser()
+Protect goal routes
+Get only users goals
+Set a user goal
+Update a user goal
+Delete user goal
