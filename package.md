@@ -12,6 +12,7 @@ npm i mongodb
 npm i -D nodemon
 npm i express-async-handler
 npm i bcryptjs
+npm i jsonwebtoken
 
 Update package.json:
 "scripts": {
