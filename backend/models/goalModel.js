@@ -5,7 +5,7 @@ const goalSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: [true, "User must exists"],
-      // * This refers to which the ObjectId should be, which is the "User" Id
+      // * This refers to which the ObjectId belongs to, and it is the "User" Id
       ref: "User",
     },
     text: {
