@@ -11,6 +11,7 @@ npm i express dotenv mongoose colors
 npm i mongodb
 npm i -D nodemon
 npm i express-async-handler
+npm i bcryptjs
 
 Update package.json:
 "scripts": {
