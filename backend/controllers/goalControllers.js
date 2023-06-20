@@ -11,7 +11,7 @@ const Goal = require("../models/goalModel");
 // Route:     GET /api/goals
 // Access:    Private
 const getGoals = asyncHandler(async (req, res) => {
-  const goals = await Goal.find();
+  const goals = await Goal.find({ user: req.user.id });
 
   // res.status(200).json({ message: "Get goals" });
   res.status(200).json(goals);
@@ -21,7 +21,10 @@ const getGoals = asyncHandler(async (req, res) => {
 // Route:     GET /api/goals/:id
 // Access:    Private
 const getOneGoal = asyncHandler(async (req, res) => {
-  const goal = await Goal.findById(req.params.id);
+  const goal = await Goal.findOne({ _id: req.params.id, user: req.user.id });
+
+  // * This "goal" is a JavaScript object
+  // console.log(typeof goal);
 
   if (!goal) {
     res.status(400);
@@ -48,6 +51,7 @@ const setGoal = asyncHandler(async (req, res) => {
 
   const goal = await Goal.create({
     text: req.body.text,
+    user: req.user.id,
   });
 
   // res.status(200).json({ message: "Create a new goal" });
