@@ -28,7 +28,7 @@ const Login = () => {
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>Welcome, please sign in</p>
+        <p>Welcome, please login in</p>
       </section>
 
       <section className="form">
