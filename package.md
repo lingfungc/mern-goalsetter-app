@@ -57,3 +57,9 @@ Get only users goals
 Set a user goal
 Update a user goal
 Delete user goal
+
+Frontend:
+npx create-react-app@latest frontend --template redux
+
+npm i react-router-dom
+npm i react-icons
