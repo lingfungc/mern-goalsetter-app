@@ -12,6 +12,7 @@ const App = () => {
       <Router>
         <div className="container">
           <Header />
+          {/* We can't have anything other than a <Route /> in <Routers /> */}
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
