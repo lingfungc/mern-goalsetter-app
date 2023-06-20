@@ -6,6 +6,7 @@
 const asyncHandler = require("express-async-handler");
 
 const Goal = require("../models/goalModel");
+const User = require("../models/userModel");
 
 // Desc:      Get goals (User-specific)
 // Route:     GET /api/goals
@@ -67,6 +68,21 @@ const updateGoal = asyncHandler(async (req, res) => {
   if (!goal) {
     res.status(400);
     throw new Error("Goal not found");
+  }
+
+  const user = await User.findById(req.user.id);
+
+  // * Check if user exists
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // * Make sure the logged-in user matches the goal's user
+  // * This "goal.user" initially is an Object Id type from mongoose schema
+  if (goal.user.toString() !== user.id) {
+    res.status(401);
+    throw new Error("User not authorized");
   }
 
   // * The third argument is an option to create a new one if it doesn't exist
