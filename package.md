@@ -7,12 +7,14 @@ Create:
 .emv
 
 Backend:
+<!-- `npm i -D` means that we only need the packages in development stage but not runtime of the app -->
 npm i express dotenv mongoose colors
 npm i mongodb
 npm i -D nodemon
 npm i express-async-handler
 npm i bcryptjs
 npm i jsonwebtoken
+npm i -D concurrently
 
 Update package.json:
 "scripts": {
