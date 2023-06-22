@@ -65,3 +65,4 @@ npx create-react-app@latest frontend --template redux
 
 npm i react-router-dom
 npm i react-icons
+npm i axios react-toastify
