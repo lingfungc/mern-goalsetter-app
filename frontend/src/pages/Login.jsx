@@ -1,7 +1,7 @@
 // import React from "react";
 
-import { useState, useEffect } from "react";
-import { FaSignInAlt } from "react-icons/fa";
+import { useState, useEffect, useRef } from "react";
+import { FaSignInAlt, FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -18,6 +18,10 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const [visible, setVisible] = useState(false);
+
+  const btnPassword = useRef(null);
 
   const { email, password } = formData;
 
@@ -46,6 +50,19 @@ const Login = () => {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const onChangePassword = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+
+    if (e.target.value !== "") {
+      btnPassword.current.classList.add("show");
+    } else {
+      btnPassword.current.classList.remove("show");
+    }
   };
 
   const onSubmit = (e) => {
@@ -85,15 +102,22 @@ const Login = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type={visible ? "text" : "password"}
               className="form-control"
               id="password"
               name="password"
               value={password}
               placeholder="Enter your password"
               autoComplete="new-password"
-              onChange={onChange}
+              onChange={onChangePassword}
             />
+            <div
+              className="btn-password"
+              ref={btnPassword}
+              onClick={() => setVisible(!visible)}
+            >
+              {visible ? <FaEyeSlash /> : <FaEye />}
+            </div>
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
