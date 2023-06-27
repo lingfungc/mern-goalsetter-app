@@ -77,13 +77,15 @@ const loginUser = asyncHandler(async (req, res) => {
 const getUser = asyncHandler(async (req, res) => {
   // * This "req.user.id" is handled by the protect() in authMiddleware.js
   // * This authMiddleware.js is working in-between the time of requests and responses
-  const { _id, name, email } = await User.findById(req.user.id);
+  // const { _id, name, email } = await User.findById(req.user.id);
 
-  res.status(200).json({
-    id: _id,
-    name: name,
-    email: email,
-  });
+  // res.status(200).json({
+  //   id: _id,
+  //   name: name,
+  //   email: email,
+  // });
+
+  res.status(200).json(req.user);
 
   // res.json({ message: "Display user data" });
 });
