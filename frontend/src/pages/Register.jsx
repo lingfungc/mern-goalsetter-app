@@ -117,6 +117,7 @@ const Register = () => {
               name="password"
               value={password}
               placeholder="Enter your password"
+              autoComplete="new-password"
               onChange={onChange}
             />
           </div>
@@ -128,6 +129,7 @@ const Register = () => {
               name="password2"
               value={password2}
               placeholder="Confirm password"
+              autoComplete="new-password"
               onChange={onChange}
             />
           </div>

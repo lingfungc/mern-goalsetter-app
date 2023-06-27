@@ -91,6 +91,7 @@ const Login = () => {
               name="password"
               value={password}
               placeholder="Enter your password"
+              autoComplete="new-password"
               onChange={onChange}
             />
           </div>
