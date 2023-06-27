@@ -1,7 +1,7 @@
 // import React from "react";
 
-import { useState, useEffect } from "react";
-import { FaUser } from "react-icons/fa";
+import { useState, useEffect, useRef } from "react";
+import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 
 // * This "useSelector" is to select something from the state in redux.js
 // * This "useDispatch" is to dispatch an async thunk function (e.g. reset, register) in the "reducer"
@@ -23,6 +23,12 @@ const Register = () => {
     password: "",
     password2: "",
   });
+
+  const [visible, setVisible] = useState(false);
+  const [visible2, setVisible2] = useState(false);
+
+  const btnPassword = useRef(null);
+  const btnPassword2 = useRef(null);
 
   const { name, email, password, password2 } = formData;
 
@@ -52,6 +58,34 @@ const Register = () => {
       // This "e.target.name" is actually the form field name
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const onChangePassword = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      // This "e.target.name" is actually the form field name
+      [e.target.name]: e.target.value,
+    }));
+
+    if (btnPassword.current && e.target.value !== "") {
+      btnPassword.current.classList.add("show");
+    } else {
+      btnPassword.current.classList.remove("show");
+    }
+  };
+
+  const onChangePasswordTwo = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      // This "e.target.name" is actually the form field name
+      [e.target.name]: e.target.value,
+    }));
+
+    if (btnPassword2.current && e.target.value !== "") {
+      btnPassword2.current.classList.add("show");
+    } else {
+      btnPassword2.current.classList.remove("show");
+    }
   };
 
   const onSubmit = (e) => {
@@ -111,27 +145,41 @@ const Register = () => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type={visible ? "text" : "password"}
               className="form-control"
               id="password"
               name="password"
               value={password}
               placeholder="Enter your password"
               autoComplete="new-password"
-              onChange={onChange}
+              onChange={onChangePassword}
             />
+            <div
+              className="btn-password"
+              ref={btnPassword}
+              onClick={() => setVisible(!visible)}
+            >
+              {visible ? <FaEyeSlash /> : <FaEye />}
+            </div>
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type={visible2 ? "text" : "password"}
               className="form-control"
               id="password2"
               name="password2"
               value={password2}
               placeholder="Confirm password"
               autoComplete="new-password"
-              onChange={onChange}
+              onChange={onChangePasswordTwo}
             />
+            <div
+              className="btn-password"
+              ref={btnPassword2}
+              onClick={() => setVisible2(!visible2)}
+            >
+              {visible2 ? <FaEyeSlash /> : <FaEye />}
+            </div>
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">

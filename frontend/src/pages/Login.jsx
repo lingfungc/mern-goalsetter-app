@@ -58,7 +58,7 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
 
-    if (e.target.value !== "") {
+    if (btnPassword.current && e.target.value !== "") {
       btnPassword.current.classList.add("show");
     } else {
       btnPassword.current.classList.remove("show");
