@@ -3,11 +3,15 @@ import axios from "axios";
 const API_URL = "/api/goals/";
 
 // Get Goals
-const getGoals = async () => {
-  const response = await axios.get(API_URL);
+const getGoals = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
-  // console.log("This is from getGoals in goalService");
-  // console.log(response.data);
+  const response = await axios.get(API_URL, config);
+
   return response.data;
 };
 
