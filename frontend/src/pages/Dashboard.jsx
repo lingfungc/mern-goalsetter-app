@@ -51,7 +51,7 @@ const Dashboard = () => {
     <>
       <section className="heading">
         <h1>Welcome {user && capitalize(user.name)}</h1>
-        <p>Goals Dashboard</p>
+        <p>All Goals</p>
       </section>
 
       <GoalForm />
