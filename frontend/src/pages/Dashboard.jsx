@@ -43,10 +43,14 @@ const Dashboard = () => {
     return <Spinner />;
   }
 
+  const capitalize = (text) => {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
   return (
     <>
       <section className="heading">
-        <h1>Welcome {user && user.name}</h1>
+        <h1>Welcome {user && capitalize(user.name)}</h1>
         <p>Goals Dashboard</p>
       </section>
 
