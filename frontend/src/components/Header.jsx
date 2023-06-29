@@ -24,7 +24,11 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">My Focusboard</Link>
+        {user ? (
+          <Link to="/">My Focusboard</Link>
+        ) : (
+          <Link to="/login">My Focusboard</Link>
+        )}
       </div>
       <ul>
         {user ? (

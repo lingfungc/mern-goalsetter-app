@@ -36,6 +36,7 @@ const Login = () => {
   useEffect(() => {
     if (isError) {
       toast.error(message);
+      navigate("/");
     }
 
     if (isSuccess || user) {
