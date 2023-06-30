@@ -3,3 +3,6 @@ node_modules
 
 # Skip .env for the APIs keys
 .env
+
+# Skip the instrustions
+goalsetter.md
